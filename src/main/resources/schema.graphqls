@@ -1,0 +1,23 @@
+type User {
+    id: ID
+    firstName: String
+    lastName: String
+    email: String
+    courses: [Course]
+}
+
+type Course {
+    id: ID
+    courseName: String
+    registrationDate: String
+    active: Boolean
+}
+
+type Query {
+    getUserByEmail(email: String): User
+}
+
+type Mutation {
+    registerCourse(userId: ID, courseName: String): Course
+    changeCourseStatus(courseId: ID, action: String): String
+}
